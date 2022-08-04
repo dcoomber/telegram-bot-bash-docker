@@ -1,0 +1,7 @@
+.env
+bin/*.conf
+bin/*.sh
+bin/scripts/*.sh
+config/botconfig.jssh
+config/botacl
+logs/*
