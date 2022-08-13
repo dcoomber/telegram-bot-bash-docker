@@ -1,0 +1,19 @@
+version: "3.9"
+services:
+  app:
+    image: telegram-bot-bash:latest
+    restart: unless-stopped
+    user: bashbot
+    command: >
+      bash -l -c "/app/bashbot.sh start
+      && tail -f /dev/null"
+    volumes:
+      - type: bind
+        source: ./botconfig.jssh
+        target: /app/botconfig.jssh
+      - type: bind
+        source: ./botacl
+        target: /app/botacl
+      - type: bind
+        source: ./logs
+        target: /app/logs
