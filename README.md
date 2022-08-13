@@ -22,31 +22,17 @@ The easiest approach to testing your customisations is to copy the following fil
 1. `Dockerfile`
 1. `docker-compose.yml` 
 
-You'll need to update `docker-compose.yml` to mount your clone of the `telegram-bot-bash` repo.
+You'll need to update `docker-compose.yml` to mount your directories.  For example, if you have customisations in `../telegram-bot-bash/scripts`:
 
-1. Remove or uncomment the direct bindings to the `botacl` and `botconfig.jssh`
-
-   ```yaml
-      # - type: bind
-      #   source: ./botconfig.jssh
-      #   target: /app/botconfig.jssh
-      # - type: bind
-      #   source: ./botacl
-      #   target: /app/botacl
-      # - type: bind
-      #   source: ./mycommands.conf
-      #   target: /app/mycommands.conf
-      # - type: bind
-      #   source: ./mycommands.sh
-      #   target: /app/mycommands.sh
-   ```
-
-2. Bind your clone directory to the container's `/app` directory
+1. Add the following bindings
 
    ```yaml
       - type: bind
-        source: ./
-        target: /app
+        source: ../telegram-bot-bash/mycommands.sh
+        target: /app/mycommands.sh
+      - type: bind
+        source: ../telegram-bot-bash/scripts
+        target: /app/scripts
    ```
 
 ## Build the image
