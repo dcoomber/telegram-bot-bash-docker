@@ -1,6 +1,6 @@
 FROM debian:stable-slim
 
-RUN apt update && apt upgrade -y && apt install procps curl -y
+RUN apt update && apt upgrade -y && apt install procps curl jq -y
 
 RUN useradd -ms /bin/bash bashbot
 
